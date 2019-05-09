@@ -7,6 +7,8 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -18,40 +20,42 @@ import org.techtown.project.R;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    ViewPager pager;
+    private RecyclerView mRecyclerView;
+    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.LayoutManager mLayoutManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        pager = findViewById(R.id.pager);
-        pager.setOffscreenPageLimit(3);
-        MyPagerAdapter adapter = new MyPagerAdapter(getSupportFragmentManager());
-        Fragment1 fragment1 = new Fragment1();
-        adapter.addItem(fragment1);
-        Fragment2 fragment2 = new Fragment2();
-        adapter.addItem(fragment2);
-        pager.setAdapter(adapter);
+
+        mRecyclerView =(RecyclerView)findViewById(R.id.recyclerView);
+        mRecyclerView.setHasFixedSize(true);
+
+        ArrayList<BImage> items = new ArrayList<>();
+        items.add(new BImage(R.drawable.sumi1));
+        items.add(new BImage(R.drawable.sumi1));
+        items.add(new BImage(R.drawable.sumi1));
+        items.add(new BImage(R.drawable.sumi1));
+        items.add(new BImage(R.drawable.sumi1));
+        items.add(new BImage(R.drawable.sumi1));
+        items.add(new BImage(R.drawable.sumi1));
+        items.add(new BImage(R.drawable.sumi1));
+        items.add(new BImage(R.drawable.sumi1));
+        items.add(new BImage(R.drawable.sumi1));
+
+
+        mLayoutManager = new StaggeredGridLayoutManager(1,StaggeredGridLayoutManager.HORIZONTAL);
+        mRecyclerView.setLayoutManager(mLayoutManager);
+
+        mAdapter=new BAdapter(items,getApplicationContext());
+        mRecyclerView.setAdapter(mAdapter);
 
     }
-    class MyPagerAdapter extends FragmentStatePagerAdapter{
-        ArrayList<Fragment> items = new ArrayList<Fragment>();
-        public MyPagerAdapter(FragmentManager fm){
-            super(fm);
-        }
-        public void addItem(Fragment item){
-            items.add(item);
-        }
-        public Fragment getItem(int position){
-            return items.get(position);
-        }
-        public int getCount(){
-            return items.size();
-        }
-    }
 
-        public void onButtonClicked(View v){
-            Toast.makeText(this,"확인1이 눌러졌습니다.",Toast.LENGTH_LONG).show();
-        }
+    public void onButtonClicked(View v){
+        Toast.makeText(this,"확인1이 눌러졌습니다.",Toast.LENGTH_LONG).show();
+    }
     public void onButtonClicked2(View v){
         Toast.makeText(this,"확인2이 눌러졌습니다.",Toast.LENGTH_LONG).show();
     }
