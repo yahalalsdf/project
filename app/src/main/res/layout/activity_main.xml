@@ -10,7 +10,7 @@
         android:id="@+id/linearLayout"
         android:layout_width="412dp"
         android:layout_height="59dp"
-        android:background="#3F51B5"
+        android:background="#ED501D"
         android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -20,7 +20,7 @@
             android:layout_width="30dp"
             android:layout_height="match_parent"
             android:layout_weight="0.7"
-            android:background="@drawable/menu1"
+            android:background="@drawable/menu"
             android:onClick="onButtonClicked" />
 
         <Button
@@ -28,21 +28,22 @@
             android:layout_width="177dp"
             android:layout_height="59dp"
             android:layout_weight="1"
-            android:onClick="onButtonClicked2"
-            android:text="방송요리맛집" />
+            android:background="@drawable/logo"
+            android:onClick="onButtonClicked2" />
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:background="#ED501D" />
 
         <Button
             android:id="@+id/button2"
             android:layout_width="16dp"
             android:layout_height="59dp"
             android:layout_weight="1"
-            android:background="@drawable/eheqhrl"
+            android:background="@drawable/search"
             android:onClick="onButtonClicked3" />
 
         <Button
@@ -55,7 +56,30 @@
 
     </LinearLayout>
 
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tabs"
+        android:layout_width="408dp"
+        android:layout_height="49dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:background="#CFCFCF"
+        android:elevation="1dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+        app:tabGravity="fill"
+        app:tabMode="fixed"
+        app:tabSelectedTextColor="@color/colorAccent"
+        app:tabTextColor="@color/colorPrimary" />
+
     <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="411dp"
         android:layout_height="100dp"
         android:orientation="vertical"
@@ -68,8 +92,8 @@
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/recyclerView"
-                android:layout_width="409dp"
-                android:layout_height="87dp"
+                android:layout_width="403dp"
+                android:layout_height="89dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="8dp"
@@ -77,5 +101,30 @@
                 app:layout_constraintTop_toTopOf="parent" />
         </android.support.constraint.ConstraintLayout>
     </LinearLayout>
+
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteY="59dp">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#00000000">
+
+            <FrameLayout
+                android:id="@+id/container"
+                android:layout_width="256dp"
+                android:layout_height="485dp"
+                android:layout_marginStart="64dp"
+                android:layout_marginLeft="64dp"
+                android:layout_marginTop="228dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            </FrameLayout>
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.design.widget.CoordinatorLayout>
 
 </android.support.constraint.ConstraintLayout>
